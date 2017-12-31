@@ -8,3 +8,15 @@
 // layout file, like app/views/layouts/application.html.erb
 
 console.log('Hello World from Webpacker')
+
+import { render } from 'react-dom'
+import React from 'react'
+import CharacterButton from '../components/createCharacterButton'
+import "babel-polyfill"
+
+document.addEventListener('DOMContentLoaded', () => {
+  render(
+    <CharacterButton />,
+    document.getElementById('character-button')
+  )
+})
