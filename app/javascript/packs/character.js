@@ -7,16 +7,21 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
-
+import "babel-polyfill"
 import { render } from 'react-dom'
 import React from 'react'
-import CharacterButton from '../components/createCharacterButton'
-import "babel-polyfill"
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import characterReducer from '../reducers/characterReducer'
+import CharacterApp from '../components/character/CharacterApp'
+
+let store = createStore(characterReducer);
 
 document.addEventListener('DOMContentLoaded', () => {
   render(
-    <CharacterButton />,
-    document.getElementById('character-button')
+    <Provider store={store}>
+      <CharacterApp />
+    </Provider>,
+    document.getElementById('character-app')
   )
 })
