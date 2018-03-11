@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import CreateButton from './CreateButton'
+import CreationButton from './CreationButton'
+import CharacterForm from './CharacterForm'
 
 class App extends Component {
-  characterForm() {
+  displayCharacterForm() {
     if (this.props.showForm) {
-      return 'FORM GOES HERE'
+      return <CharacterForm />
     }
 
     return ''
@@ -15,8 +16,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <CreateButton />
-        { this.characterForm() }
+        <CreationButton />
+        { this.displayCharacterForm() }
       </div>
     )
   }

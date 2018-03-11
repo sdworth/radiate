@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { showForm } from '../../actions/character/characterActions'
 
-class Button extends Component {
+class CreationButton extends Component {
   constructor() {
     super();
     this.renderForm = this.renderForm.bind(this);
@@ -22,19 +22,19 @@ class Button extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onShowForm: () => {      
+    onShowForm: () => {
       dispatch(showForm(true))
     }
   }
 }
 
-Button.propTypes = {
+CreationButton.propTypes = {
   onShowForm: PropTypes.func.isRequired
 }
 
-const ButtonContainer = connect(
+const CreationButtonContainer = connect(
   null,
   mapDispatchToProps
-)(Button)
+)(CreationButton)
 
-export default ButtonContainer;
+export default CreationButtonContainer;
